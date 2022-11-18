@@ -1,23 +1,29 @@
-import { QueryInterface } from 'sequelize';
+/* eslint @typescript-eslint/no-var-requires: 0 */
+const fs = require("fs");
+
+const qi = (queryInterface) =>
+  queryInterface.context ? queryInterface.context : queryInterface;
 
 module.exports = {
-  up: async (queryInterface: QueryInterface): Promise<void> =>
-    queryInterface.sequelize.transaction(async (transaction) => {
+  up: async (queryInterface): Promise<void> => {
+    return qi(queryInterface).sequelize.transaction(async (transaction) => {
       /**
-     * Add altering commands here.
-     *
-     * Example:
-     * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
-     */
-    }),
+       * Add altering commands here.
+       *
+       * Example:
+       * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
+       */
 
-  down: async (queryInterface: QueryInterface): Promise<void> =>
-    queryInterface.sequelize.transaction(async (transaction) => {
+    });
+  },
+
+  down: async (queryInterface): Promise<void> =>
+    qi(queryInterface).sequelize.transaction(async (transaction) => {
       /**
-     * Add reverting commands here.
-     *
-     * Example:
-     * await queryInterface.dropTable('users');
-     */
-    })
+       * Add reverting commands here.
+       *
+       * Example:
+       * await queryInterface.dropTable('users');
+       */
+    }),
 };
