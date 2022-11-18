@@ -45,7 +45,7 @@ module.exports = {
   },
 
   getFileExtension() {
-    return 'js';
+    return 'ts';
   },
 
   addFileExtension(basename, options) {
@@ -55,6 +55,13 @@ module.exports = {
   getMigrationPath(migrationName) {
     return path.resolve(
       this.getPath('migration'),
+      this.getFileName('migration', migrationName)
+    );
+  },
+
+  getTsMigrationPath(migrationName) {
+    return path.resolve(
+      this.getPath('tsMigration'),
       this.getFileName('migration', migrationName)
     );
   },

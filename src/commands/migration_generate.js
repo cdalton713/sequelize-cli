@@ -15,12 +15,12 @@ exports.builder = (yargs) =>
   ).argv;
 
 exports.handler = function (args) {
-  helpers.init.createMigrationsFolder();
+  helpers.init.createTsMigrationsFolder();
 
   fs.writeFileSync(
-    helpers.path.getMigrationPath(args.name),
+    helpers.path.getTsMigrationPath(args.name),
     helpers.template.render(
-      'migrations/skeleton.js',
+      'migrations/ts-skeleton.ts',
       {},
       {
         beautify: false,
@@ -30,7 +30,7 @@ exports.handler = function (args) {
 
   helpers.view.log(
     'New migration was created at',
-    clc.blueBright(helpers.path.getMigrationPath(args.name)),
+    clc.blueBright(helpers.path.getTsMigrationPath(args.name)),
     '.'
   );
 

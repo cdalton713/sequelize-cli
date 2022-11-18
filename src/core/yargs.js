@@ -40,12 +40,27 @@ export function _baseOptions(yargs) {
       default: 'migrations',
       type: 'string',
     })
+    .option('ts-migrations-path', {
+      describe: 'The path to the migrations folder',
+      default: 'migrations',
+      type: 'string',
+    })
     .option('seeders-path', {
       describe: 'The path to the seeders folder',
       default: 'seeders',
       type: 'string',
     })
+    .option('ts-seeders-path', {
+      describe: 'The path to the seeders folder',
+      default: 'seeders',
+      type: 'string',
+    })
     .option('models-path', {
+      describe: 'The path to the models folder',
+      default: 'models',
+      type: 'string',
+    })
+    .option('ts-models-path', {
       describe: 'The path to the models folder',
       default: 'models',
       type: 'string',

@@ -42,13 +42,17 @@ const init = {
   createMigrationsFolder: (force) => {
     createFolder('migrations', helpers.path.getPath('migration'), force);
   },
-
+  createTsMigrationsFolder: (force) => {
+    createFolder('migrations', helpers.path.getPath('ts-migration'), force);
+  },
   createSeedersFolder: (force) => {
     createFolder('seeders', helpers.path.getPath('seeder'), force);
+    createFolder('seeders', helpers.path.getPath('ts-seeder'), force);
   },
 
   createModelsFolder: (force) => {
     createFolder('models', helpers.path.getModelsPath(), force);
+    createFolder('ts-models', helpers.path.getModelsPath(), force);
   },
 
   createModelsIndexFile: (force) => {
