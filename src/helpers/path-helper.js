@@ -73,6 +73,13 @@ module.exports = {
     );
   },
 
+  getTsSeederPath(seederName) {
+    return path.resolve(
+      this.getPath('tsSeeder'),
+      this.getFileName('seeder', seederName)
+    );
+  },
+
   getModelsPath() {
     return args.modelsPath || path.resolve(process.cwd(), 'models');
   },

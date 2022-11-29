@@ -16,7 +16,7 @@ exports.handler = function (args) {
   helpers.init.createSeedersFolder();
 
   fs.writeFileSync(
-    helpers.path.getSeederPath(args.name),
+    helpers.path.getTsSeederPath(args.name),
     helpers.template.render(
       'seeders/skeleton.js',
       {},

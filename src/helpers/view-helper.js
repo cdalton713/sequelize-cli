@@ -37,8 +37,10 @@ module.exports = {
 
     this.log();
     console.error(`${clc.red('ERROR:')} ${message}`);
-    if (error.original.detail) {
+    if (error?.original?.detail) {
       console.error(`${clc.red('ERROR DETAIL:')} ${error.original.detail}`);
+    } else if (error?.message) {
+      console.error(`${clc.red('ERROR DETAIL:')} ${error.message}`);
     }
 
     extraMessages.forEach((message) =>
